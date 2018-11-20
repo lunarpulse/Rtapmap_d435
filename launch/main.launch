@@ -1,0 +1,87 @@
+<launch>
+  
+<include file="$(find slam_project)/launch/robot_description.launch"/>
+
+  <arg name="world" default="empty"/> 
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find slam_project)/worlds/jackal_race.world"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="headless" value="$(arg headless)"/>
+    <arg name="debug" value="$(arg debug)"/>
+  </include>
+<!--spawn a robot in gazebo world-->
+
+<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" 
+output="screen" args="-urdf -param robot_description -model slam_project"/>
+
+ 
+   <!--RVIZ-->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find slam_project)/rviz_bot.rviz"/>
+ 
+ 
+  <!-- Map server -->
+  <arg name="map_file" default="$(find slam_project)/maps/jackal_race.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+  <!-- Localization-->
+  <node pkg="amcl" type="amcl" name="amcl" output="screen">
+
+  <remap from="scan" to="slam_project/laser/scan"/>
+  
+  <!-- Overall filter parameters -->
+	<param name="min_particles" value="100"/>
+	<param name="max_particles" value="500"/>
+  <param name="update_min_a" value="0.1"/>
+  <param name="update_min_d" value="0.05"/>
+  
+	<param name="transform_tolerance" value="0.3"/>
+ 	<param name="initial_pose_x" value="0.0"/>
+  <param name="initial_pose_y" value="0.0"/>
+  <param name="initial_pose_a" value="0.0"/>
+
+  <!-- Odometry model parameters -->
+	<param name="odom_alpha1" value="0.005"/>
+	<param name="odom_alpha2" value="0.010"/>
+	<param name="odom_alpha3" value="0.005"/>
+  <param name="odom_alpha4" value="0.005"/>
+
+  <param name="odom_frame_id" value="odom"/>
+  <param name="odom_model_type" value="diff-corrected"/>
+  <param name="base_frame_id" value="robot_footprint"/>
+  <param name="global_frame_id" value="map"/>
+
+  <!-- Laser model parameters -->
+  <param name="laser_model_type" value="likelihood_field"/>
+
+  </node>
+
+  <!-- Move base -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find slam_project)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find slam_project)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find slam_project)/config/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find slam_project)/config/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find slam_project)/config/base_local_planner_params.yaml" command="load" />
+
+    <remap from="cmd_vel" to="cmd_vel"/>
+    <remap from="odom" to="odom"/>
+    <remap from="scan" to="slam_project/laser/scan"/>
+
+    <param name="base_global_planner" type="string" value="navfn/NavfnROS" />
+    <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/>
+  </node>   
+
+   
+  <!-- test-->
+  <node name="slam_project_navigation_goal" pkg="slam_project" type="slam_project_navigation_goal" />
+
+
+</launch>

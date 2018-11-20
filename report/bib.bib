@@ -1,0 +1,86 @@
+@article{Fox2001,
+abstract = {Over the last years, particle filters have been applied$\backslash$nwith great success to a variety of state estimation$\backslash$nproblems. We present a statistical approach to increasing$\backslash$nthe efficiency of particle filters by adapting the size of$\backslash$nsample sets on-the-fly. The key idea of the KLD-sampling$\backslash$nmethod is to bound the approximation error introduced by$\backslash$nthe sample-based representation of the particle filter. The$\backslash$nname KLD-sampling is due to the fact that we measure the$\backslash$napproximation error by the Kullback-Leibler distance. Our$\backslash$nadaptation approach chooses a small number of samples if$\backslash$nthe density is focused on a small part of the state space,$\backslash$nand it chooses a large number of samples if the state$\backslash$nuncertainty is high. Both the implementation and$\backslash$ncomputation overhead of this approach are small. Extensive$\backslash$nexperiments using mobile robot localization as a test$\backslash$napplication show that our approach yields drastic$\backslash$nimprovements over particle filters with fixed sample set$\backslash$nsizes and over a previously introduced adaptation$\backslash$ntechnique.},
+author = {Fox, Dieter},
+doi = {10.1.1.21.5786},
+isbn = {0262042088},
+issn = {10495258},
+journal = {Advances in Neural Information Processing Systems},
+mendeley-groups = {Robotics,Robotics/Localisation},
+pmid = {19806183},
+title = {{KLD-sampling: Adaptive particle filters and mobile robot localization}},
+year = {2001}
+}
+@article{Labbe2018,
+abstract = {Distributed as an open‐source library since 2013, real‐time appearance‐based mapping (RTAB‐Map) started as an appearance‐based loop closure detection approach with memory management to deal with large‐scale and long‐term online operation. It then grew to implement simultaneous localization and mapping (SLAM) on various robots and mobile platforms. As each application brings its own set of constraints on sensors, processing capabilities, and locomotion, it raises the question of which SLAM approach is the most appropriate to use in terms of cost, accuracy, computation power, and ease of integration. Since most of SLAM approaches are either visual‐ or lidar‐based, comparison is difficult. Therefore, we decided to extend RTAB‐Map to support both visual and lidar SLAM, providing in one package a tool allowing users to implement and compare a variety of 3D and 2D solutions for a wide range of applications with different robots and sensors. This paper presents this extended version of RTAB‐Map and its use in comparing, both quantitatively and qualitatively, a large selection of popular real‐world datasets (e.g., KITTI, EuRoC, TUM RGB‐D, MIT Stata Center on PR2 robot), outlining strengths, and limitations of visual and lidar SLAM configurations from a practical perspective for autonomous navigation applications.},
+author = {Labb{\'{e}}, M. and Michaud, F.},
+doi = {10.1002/rob.21831},
+file = {:home/lunarpulse/Downloads/Labbe18JFR{\_}preprint.pdf:pdf},
+issn = {15564959},
+journal = {Journal of Field Robotics},
+mendeley-groups = {Robotics/SLAM},
+title = {{RTAB-Map as an open-source lidar and visual simultaneous localization and mapping library for large-scale and long-term online operation}},
+url = {http://doi.wiley.com/10.1002/rob.21831},
+year = {2018}
+}
+
+@article{Thrun2002,
+abstract = {Predicting the binding mode of flexible polypeptides to proteins is an important task that falls outside the domain of applicability of most small molecule and protein−protein docking tools. Here, we test the small molecule flexible ligand docking program Glide on a set of 19 non-$\alpha$-helical peptides and systematically improve pose prediction accuracy by enhancing Glide sampling for flexible polypeptides. In addition, scoring of the poses was improved by post-processing with physics-based implicit solvent MM- GBSA calculations. Using the best RMSD among the top 10 scoring poses as a metric, the success rate (RMSD ≤ 2.0 {\AA} for the interface backbone atoms) increased from 21{\%} with default Glide SP settings to 58{\%} with the enhanced peptide sampling and scoring protocol in the case of redocking to the native protein structure. This approaches the accuracy of the recently developed Rosetta FlexPepDock method (63{\%} success for these 19 peptides) while being over 100 times faster. Cross-docking was performed for a subset of cases where an unbound receptor structure was available, and in that case, 40{\%} of peptides were docked successfully. We analyze the results and find that the optimized polypeptide protocol is most accurate for extended peptides of limited size and number of formal charges, defining a domain of applicability for this approach.},
+archivePrefix = {arXiv},
+arxivId = {arXiv:1011.1669v3},
+author = {Thrun, Sebastian},
+doi = {10.1145/504729.504754},
+eprint = {arXiv:1011.1669v3},
+file = {:home/lunarpulse/Downloads/ProbabilisticRobotics.pdf:pdf},
+isbn = {9788578110796},
+issn = {00010782},
+journal = {Communications of the ACM},
+mendeley-groups = {Robotics,Robotics/Localisation,Robotics/SLAM},
+pages = {1999--2000},
+pmid = {25246403},
+title = {{Probabilistic robotics}},
+year = {2002}
+}
+
+@misc{Missri,
+author = {Missri, Salah},
+mendeley-groups = {Robotics/Collision Avoidance/RGB-D},
+title = {{SyrianSpock/realsense{\_}gazebo{\_}plugin: Intel RealSense R200 Gazebo ROS plugin and model}},
+url = {https://github.com/SyrianSpock/realsense{\_}gazebo{\_}plugin},
+urldate = {2018-11-04}
+}
+
+@book{Joseph2015,
+abstract = {Mastering ROS for Robotics Programming is an advanced guide of ROS that is very suitable for readers who already have a basic knowledge in ROS. ROS is widely used in robotics companies, universities, and robotics research institutes for designing, building, and simulating a robot model and interfacing it into real hardware. ROS is now an essential requirement for Robotic engineers; this guide can help you acquire knowledge of ROS and can also help you polish your skills in ROS using interactive examples. Even though it is an advanced guide, you can see the basics of ROS in the first chapter to refresh the concepts. It also helps ROS beginners. The book mainly focuses on the advanced concepts of ROS, such as ROS Navigation stack, ROS MoveIt!, ROS plugins, nodelets, controllers, ROS Industrial, and so on. You can work with the examples in the book without any special hardware; however, in some sections you can see the interfacing of I/O boards, vision sensors, and actuators to ROS. To work with this hardware, you will need to buy it. The book starts with an introduction to ROS and then discusses how to build a robot model in ROS for simulating and visualizing. After the simulation of robots using Gazebo, we can see how to connect the robot to Navigation stack and MoveIt!. In addition to this, we can see ROS plugins, controllers, nodelets, and interfacing of I/O boards and vision sensors. Finally, we can see more about ROS Industrial and troubleshooting and best practices in ROS.},
+address = {Birmingham},
+author = {Joseph, Lentin},
+file = {:home/lunarpulse/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Joseph - 2015 - Mastering ROS for Robotics Programming.pdf:pdf},
+isbn = {9781783551798},
+keywords = {ROS},
+mendeley-groups = {Robotics/ROS},
+mendeley-tags = {ROS},
+pages = {451},
+publisher = {Packt Publishing Ltd},
+title = {{Mastering ROS for Robotics Programming}},
+year = {2015}
+}
+
+@misc{AMCL_ROS,
+mendeley-groups = {Robotics/Localisation},
+title = {{amcl - ROS Wiki}},
+url = {http://wiki.ros.org/amcl{\#}Parameters},
+urldate = {2018-11-04}
+}
+
+@misc{Maturana2015c,
+author = {Maturana, D and Scherer, S},
+booktitle = {IEEE International Conference on Intelligent Robots and Systems},
+doi = {10.1109/IROS.2015.7353481},
+file = {:home/lunarpulse/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Maturana, Scherer - 2015 - VoxNet A 3D Convolutional Neural Network for real-time object recognition.pdf:pdf},
+isbn = {21530858},
+mendeley-groups = {NeuralNetwork/CNN},
+pages = {922--928},
+title = {{VoxNet: A 3D Convolutional Neural Network for real-time object recognition}},
+volume = {2015-},
+year = {2015}
+}
+

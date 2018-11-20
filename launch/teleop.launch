@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+<node name="teleop" pkg="slam_project" type="teleop" output="screen"/>
+
+
+	  <!-- test-->
+ <!-- <node name="racer_bot_navigation_goal" pkg="racer_bot" type="racer_bot_navigation_goal" /> -->
+
+
+</launch>
